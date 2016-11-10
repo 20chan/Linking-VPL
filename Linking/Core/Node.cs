@@ -8,6 +8,19 @@ namespace Linking.Core
     {
         public Node Parent { get; set; }
 
+        private NodeCollection _nodes;
+        public virtual NodeCollection Nodes
+        {
+            get
+            {
+                if (_nodes == null)
+                    _nodes = this.CreateNodesInstance();
+                return _nodes;
+            }
+        }
+
+        protected NodeCollection CreateNodesInstance() => new NodeCollection(this);
+
         public Node(Node parent)
         {
             Parent = parent;
