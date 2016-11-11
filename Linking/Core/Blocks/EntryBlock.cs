@@ -9,6 +9,7 @@ namespace Linking.Core.Blocks
         {
             get
             {
+                // TODO: 컨트롤 기능 구현
                 throw new NotImplementedException();
             }
         }

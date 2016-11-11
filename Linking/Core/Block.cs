@@ -6,6 +6,7 @@
         protected abstract System.Windows.Forms.Control CreateControlInstance();
 
         public Board Board { get; }
+        public bool IsBreakPoint { get; set; } = false;
 
         protected NodeCollection[] _linked;
         public virtual NodeCollection[] LinkedBlocks
