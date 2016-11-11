@@ -151,9 +151,11 @@ namespace Linking.Core
             #endregion
             #region ICloneable
 
-            object ICloneable.Clone()
+            public object Clone()
             {
-                throw new NotImplementedException();
+                var clone = Owner.CreateNodesInstance();
+                clone._list.AddRange(this);
+                return clone;
             }
 
             #endregion

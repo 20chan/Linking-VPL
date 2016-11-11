@@ -19,10 +19,7 @@
                 }
                 return _linked;
             }
-            protected set
-            {
-
-            }
+            set { throw new System.NotImplementedException(); }
         }
 
         /// <summary>
