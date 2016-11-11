@@ -48,6 +48,8 @@
     <Compile Include="Core\Blocks\EntryBlock.cs" />
     <Compile Include="Core\Board.cs" />
     <Compile Include="Core\Node.cs" />
+    <Compile Include="Core\Variable\Variable.cs" />
+    <Compile Include="Core\Variable\VariableTable.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
