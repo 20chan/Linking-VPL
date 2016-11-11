@@ -5,7 +5,9 @@
         public abstract System.Windows.Forms.Control Control { get; }
         protected abstract System.Windows.Forms.Control CreateControlInstance();
 
-        private NodeCollection[] _linked;
+        public Board Board { get; }
+
+        protected NodeCollection[] _linked;
         public virtual NodeCollection[] LinkedBlocks
         {
             get
@@ -17,13 +19,26 @@
                 }
                 return _linked;
             }
+            protected set
+            {
+
+            }
         }
 
-        public Palette Palette { get; }
+        /// <summary>
+        /// 다음에 실행될 블럭, 프로그램이 실행중이 아니면 null
+        /// </summary>
+        public Block Next { get; private set; }
 
-        public Block(Node parent, Palette palette) : base(parent)
+        public Block(Board board, Node parent) : base(parent)
         {
-            Palette = palette;
+            Board = board;
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            Next = null;
         }
 
         public static void Connect(Block from, Block to, int index = 0)
