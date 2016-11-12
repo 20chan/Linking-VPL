@@ -12,8 +12,8 @@ namespace Linking.Core
         /// </summary>
         public int Step { get; private set; }
 
+        public Block Entry { get; set; }
         private Block _current;
-        private List<Block> _palettes = new List<Block>();
 
         private VariableTable _table = new VariableTable();
         
@@ -24,7 +24,7 @@ namespace Linking.Core
 
         protected void Initialize()
         {
-            _current = _palettes.Find(b => b is EntryBlock);
+            _current = Entry;
             _table.Clear();
         }
 
@@ -43,6 +43,11 @@ namespace Linking.Core
         {
             _current.Execute(_table);
             _current = _current.Next;
+        }
+
+        public void PrintAllVariables()
+        {
+            _table.Print();
         }
     }
 }

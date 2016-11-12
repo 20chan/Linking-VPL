@@ -72,6 +72,13 @@ namespace Linking.Core.Var
             return _table.Remove(var.Name);
         }
 
+        public void Print()
+        {
+            for (int i = 0; i < Count; i++)
+                Console.WriteLine("{0} : {1}",
+                    _table.Keys.ElementAt(i), _table.Values.ElementAt(i).Value);
+        }
+
         public IEnumerator GetEnumerator() => new VariableTableEnumerator(this);
 
         bool ICollection.IsSynchronized
