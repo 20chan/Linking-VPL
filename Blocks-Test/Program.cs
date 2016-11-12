@@ -27,11 +27,16 @@ namespace Blocks_Test
             };
             Block.Connect(entry, declare);
             Block.Connect(declare, change);
+            //Block.Connect(change, change);
 
             board.Entry = entry;
+            board.Initialize();
 
-            board.Run();
-            board.PrintAllVariables();
+            while (!board.Ended)
+            {
+                board.RunStep();
+                board.PrintAllVariables();
+            }
 
             Console.ReadLine();
         }

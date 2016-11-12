@@ -11,6 +11,7 @@ namespace Linking.Core
         /// 실행한 블럭의 개수
         /// </summary>
         public int Step { get; private set; }
+        public bool Ended => _current == null;
 
         public Block Entry { get; set; }
         private Block _current;
@@ -22,7 +23,7 @@ namespace Linking.Core
             
         }
 
-        protected void Initialize()
+        public void Initialize()
         {
             _current = Entry;
             _table.Clear();
@@ -31,7 +32,7 @@ namespace Linking.Core
         public void Run()
         {
             Initialize();
-            while (_current != null)
+            while (!Ended)
             {
                 if (_current.IsBreakPoint)
                     break;
@@ -43,10 +44,12 @@ namespace Linking.Core
         {
             _current.Execute(_table);
             _current = _current.Next;
+            Step++;
         }
 
         public void PrintAllVariables()
         {
+            Console.WriteLine("Step {0}", Step);
             _table.Print();
         }
     }
