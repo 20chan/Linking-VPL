@@ -38,7 +38,6 @@ namespace Linking.Core
             public Node Owner => _owner;
 
             private ArrayList _list;
-
             public int Count => _list.Count;
 
             public NodeCollection(Node owner)

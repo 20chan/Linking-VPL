@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Linking.Core.Blocks
 {
-    public class EntryBlock : Block
+    public class DeclareVariableBlock : Block
     {
         public override Control Control
         {
             get
             {
-                // TODO: 컨트롤 기능 구현
                 throw new NotImplementedException();
             }
         }
@@ -17,8 +19,10 @@ namespace Linking.Core.Blocks
         {
             throw new NotImplementedException();
         }
+
+        public Var.Variable Variable { get; set; }
         
-        public EntryBlock(Board board, Node parent = null) : base(board, parent)
+        public DeclareVariableBlock(Board board, Node parent = null) : base(board, parent)
         {
             _linked = new Block[1];
         }
@@ -35,7 +39,7 @@ namespace Linking.Core.Blocks
 
         public override void Execute(Var.VariableTable table)
         {
-            Next = LinkedBlocks[0];
+            // TODO: Declare Var!
             base.Execute(table);
         }
     }

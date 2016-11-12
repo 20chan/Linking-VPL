@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Linking.Core.Blocks;
+using Linking.Core.Var;
 
 namespace Linking.Core
 {
@@ -13,6 +14,8 @@ namespace Linking.Core
 
         private Block _current;
         private List<Block> _palettes = new List<Block>();
+
+        private VariableTable _table = new VariableTable();
         
         public Board() : base(null)
         {
@@ -22,6 +25,7 @@ namespace Linking.Core
         protected void Initialize()
         {
             _current = _palettes.Find(b => b is EntryBlock);
+            _table.Clear();
         }
 
         public void Run()
@@ -37,8 +41,13 @@ namespace Linking.Core
 
         public void RunStep()
         {
-            _current.Execute();
+            _current.Execute(_table);
             _current = _current.Next;
+        }
+
+        public string GetVariable(string name)
+        {
+            return _table[name].ToString();
         }
     }
 }

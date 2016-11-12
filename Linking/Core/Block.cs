@@ -8,25 +8,27 @@
         public Board Board { get; }
         public bool IsBreakPoint { get; set; } = false;
 
-        protected NodeCollection[] _linked;
-        public virtual NodeCollection[] LinkedBlocks
+        protected Block[] _linked;
+        public virtual Block[] LinkedBlocks
         {
             get
             {
                 if (_linked == null)
                 {
-                    _linked = new NodeCollection[1];
-                    _linked[0] = CreateNodesInstance();
+                    _linked = new Block[1];
                 }
                 return _linked;
             }
-            set { throw new System.NotImplementedException(); }
+            protected set
+            {
+                _linked = (Block[])value.Clone();
+            }
         }
 
         /// <summary>
         /// 다음에 실행될 블럭, 프로그램이 실행중이 아니면 null
         /// </summary>
-        public Block Next { get; private set; }
+        public Block Next { get; protected set; }
 
         public Block(Board board, Node parent) : base(parent)
         {
@@ -51,7 +53,7 @@
         /// <param name="block"></param>
         protected virtual void ConnectTo(Block block, int index)
         {
-            _linked[index].Add(block);
+            _linked[index] = block;
         }
 
         /// <summary>
@@ -63,7 +65,7 @@
 
         }
 
-        public virtual void Execute()
+        public virtual void Execute(Var.VariableTable table)
         {
 
         }
