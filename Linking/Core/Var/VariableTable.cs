@@ -51,10 +51,11 @@ namespace Linking.Core.Var
             }
         }
 
-        public bool Contains(Variable var)
-        {
-            return _table.ContainsKey(var.Name);
-        }
+        public bool Contains(Variable var) 
+            => Contains(var.Name);
+
+        public bool Contains(string name)
+            => _table.ContainsKey(name);
 
         public void CopyTo(Array array, int index)
         {

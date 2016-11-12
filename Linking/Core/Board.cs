@@ -44,10 +44,5 @@ namespace Linking.Core
             _current.Execute(_table);
             _current = _current.Next;
         }
-
-        public string GetVariable(string name)
-        {
-            return _table[name].ToString();
-        }
     }
 }

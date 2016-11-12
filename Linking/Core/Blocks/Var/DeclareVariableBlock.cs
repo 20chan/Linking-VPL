@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-namespace Linking.Core.Blocks
+namespace Linking.Core.Blocks.Var
 {
     public class DeclareVariableBlock : Block
     {
@@ -20,7 +17,7 @@ namespace Linking.Core.Blocks
             throw new NotImplementedException();
         }
 
-        public Var.Variable Variable { get; set; }
+        public Core.Var.Variable Variable { get; set; }
         
         public DeclareVariableBlock(Board board, Node parent = null) : base(board, parent)
         {
@@ -37,9 +34,14 @@ namespace Linking.Core.Blocks
             base.ConnectTo(block, index);
         }
 
-        public override void Execute(Var.VariableTable table)
+        public override void Execute(Core.Var.VariableTable table)
         {
-            // TODO: Declare Var!
+            if (Variable == null)
+                throw new VariableException("변수가 비어있습니다.");
+            if (table.Contains(Variable))
+                throw new VariableException("이미 같은 이름의 변수가 정의되어 있습니다.");
+            table.Add(Variable);
+            Next = _linked[0];
             base.Execute(table);
         }
     }
