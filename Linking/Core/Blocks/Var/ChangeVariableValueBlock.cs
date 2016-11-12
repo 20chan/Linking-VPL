@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Linking.Core.Var;
 
 namespace Linking.Core.Blocks.Var
 {
@@ -20,7 +21,8 @@ namespace Linking.Core.Blocks.Var
             throw new NotImplementedException();
         }
 
-        public Core.Var.Variable Variable { get; set; }
+        public string Name { get; set; }
+        public Func<Variable, Variable> Delegate { get; set; }
 
         public ChangeVariableValueBlock(Board board, Node parent = null) : base(board, parent)
         {
@@ -37,13 +39,13 @@ namespace Linking.Core.Blocks.Var
             base.ConnectTo(block, index);
         }
 
-        public override void Execute(Core.Var.VariableTable table)
+        public override void Execute(VariableTable table)
         {
-            if (Variable == null)
+            if (string.IsNullOrEmpty(Name))
                 throw new VariableException("변수가 비어있습니다.");
-            if (!table.Contains(Variable))
+            if (!table.Contains(Name))
                 throw new VariableException("변수가 정의되어 있지 않습니다.");
-            table[Variable.Name] = Variable;
+            table[Name] = Delegate(table[Name]);
             Next = _linked[0];
             base.Execute(table);
         }

@@ -5,6 +5,7 @@ using System.Text;
 using Linking.Core;
 using Linking.Core.Blocks;
 using Linking.Core.Blocks.Var;
+using Linking.Core.Var;
 
 namespace Blocks_Test
 {
@@ -17,11 +18,12 @@ namespace Blocks_Test
             EntryBlock entry = new EntryBlock(board);
             DeclareVariableBlock declare = new DeclareVariableBlock(board)
             {
-                Variable = new Linking.Core.Var.Variable("a", 10)
+                Variable = new Variable("a", 10)
             };
             ChangeVariableValueBlock change = new ChangeVariableValueBlock(board)
             {
-                Variable = new Linking.Core.Var.Variable("a", 11)
+                Name = "a",
+                Delegate = v => new Variable("a", (int)v.Value + 1)
             };
             Block.Connect(entry, declare);
             Block.Connect(declare, change);
