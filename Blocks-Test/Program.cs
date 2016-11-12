@@ -6,6 +6,7 @@ using Linking.Core;
 using Linking.Core.Blocks;
 using Linking.Core.Blocks.Var;
 using Linking.Core.Var;
+using Linking.Core.Cond;
 
 namespace Blocks_Test
 {
@@ -16,18 +17,24 @@ namespace Blocks_Test
             Board board = new Board();
             
             EntryBlock entry = new EntryBlock(board);
-            DeclareVariableBlock declare = new DeclareVariableBlock(board)
+            DeclareVariableBlock declare1 = new DeclareVariableBlock(board)
             {
                 Variable = new Variable("a", 1)
             };
-            ChangeVariableValueBlock change = new ChangeVariableValueBlock(board)
+            DeclareVariableBlock declare2 = new DeclareVariableBlock(board)
             {
-                Name = "a",
-                Delegate = v => (int)v + 1
+                Variable = new Variable("i", 1)
             };
-            Block.Connect(entry, declare);
-            Block.Connect(declare, change);
-            //Block.Connect(change, change);
+            ConditionBlock small = new ConditionBlock(board, null, Condition.VarSmallerCondition(board, "i", 10));
+            ChangeVariableValueBlock change = ChangeVariableValueBlock.VarVar(board, "a", "i", (a, i) => (dynamic)a * (dynamic)i);
+            ChangeVariableValueBlock change2 = ChangeVariableValueBlock.VarVal(board, "i", 1, (i, v) => (dynamic)i + (dynamic)v);
+
+            Block.Connect(entry, declare1);
+            Block.Connect(declare1, declare2);
+            Block.Connect(declare2, small);
+            Block.Connect(small, change);
+            Block.Connect(change, change2);
+            Block.Connect(change2, small);
 
             board.Entry = entry;
             board.Initialize();

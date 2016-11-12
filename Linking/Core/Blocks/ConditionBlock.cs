@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Linking.Core.Var;
+using Linking.Core.Cond;
 
 namespace Linking.Core.Blocks
 {
@@ -22,9 +23,9 @@ namespace Linking.Core.Blocks
         }
 
         // TODO: Condition클래스로 대체
-        public virtual Func<bool> Condition { get; set; }
+        public virtual Condition Condition { get; set; }
 
-        public ConditionBlock(Board board, Node parent = null, Func<bool> condition = null) : base(board, parent)
+        public ConditionBlock(Board board, Node parent = null, Condition condition = null) : base(board, parent)
         {
             _linked = new Block[2];
             Condition = condition;
@@ -40,7 +41,7 @@ namespace Linking.Core.Blocks
             if (Condition == null)
                 throw new ArgumentNullException("Condition");
 
-            if (Condition())
+            if (Condition.Check())
                 Next = _linked[0];
             else
                 Next = _linked[1];
