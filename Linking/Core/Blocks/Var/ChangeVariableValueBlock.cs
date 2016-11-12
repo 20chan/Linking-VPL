@@ -22,7 +22,7 @@ namespace Linking.Core.Blocks.Var
         }
 
         public string Name { get; set; }
-        public Func<Variable, Variable> Delegate { get; set; }
+        public Func<object, object> Delegate { get; set; }
 
         public ChangeVariableValueBlock(Board board, Node parent = null) : base(board, parent)
         {
@@ -45,7 +45,7 @@ namespace Linking.Core.Blocks.Var
                 throw new VariableException("변수가 비어있습니다.");
             if (!table.Contains(Name))
                 throw new VariableException("변수가 정의되어 있지 않습니다.");
-            table[Name] = Delegate(table[Name]);
+            table[Name].Value = Delegate(table[Name].Value);
             Next = _linked[0];
             base.Execute(table);
         }

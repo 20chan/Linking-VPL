@@ -15,7 +15,7 @@ namespace Linking.Core
         public Block Entry { get; set; }
         private Block _current;
 
-        private VariableTable _table = new VariableTable();
+        internal VariableTable _table = new VariableTable();
         
         public Board() : base(null)
         {

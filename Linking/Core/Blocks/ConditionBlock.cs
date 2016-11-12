@@ -21,6 +21,7 @@ namespace Linking.Core.Blocks
             throw new NotImplementedException();
         }
 
+        // TODO: Condition클래스로 대체
         public virtual Func<bool> Condition { get; set; }
 
         public ConditionBlock(Board board, Node parent = null, Func<bool> condition = null) : base(board, parent)

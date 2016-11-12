@@ -14,16 +14,16 @@ namespace Blocks_Test
         static void Main(string[] args)
         {
             Board board = new Board();
-
+            
             EntryBlock entry = new EntryBlock(board);
             DeclareVariableBlock declare = new DeclareVariableBlock(board)
             {
-                Variable = new Variable("a", 10)
+                Variable = new Variable("a", 1)
             };
             ChangeVariableValueBlock change = new ChangeVariableValueBlock(board)
             {
                 Name = "a",
-                Delegate = v => new Variable("a", (int)v.Value + 1)
+                Delegate = v => (int)v + 1
             };
             Block.Connect(entry, declare);
             Block.Connect(declare, change);

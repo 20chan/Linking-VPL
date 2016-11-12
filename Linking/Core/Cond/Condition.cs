@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Linking.Core.Cond
 {
-    class Condition
+    public abstract class Condition
     {
+
     }
 }
