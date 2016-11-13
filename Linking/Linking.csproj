@@ -49,7 +49,7 @@
     <Compile Include="Core\Blocks\Var\ChangeVariableValueBlock.cs" />
     <Compile Include="Core\Blocks\Var\DeclareVariableBlock.cs" />
     <Compile Include="Core\Blocks\EntryBlock.cs" />
-    <Compile Include="Core\Blocks\Var\VariableException.cs" />
+    <Compile Include="Core\Var\VariableException.cs" />
     <Compile Include="Core\Board.cs" />
     <Compile Include="Core\Cond\Condition.cs" />
     <Compile Include="Core\Node.cs" />

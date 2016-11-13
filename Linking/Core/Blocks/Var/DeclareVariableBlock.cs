@@ -1,4 +1,5 @@
 ﻿using System;
+using Linking.Core.Var;
 using System.Windows.Forms;
 
 namespace Linking.Core.Blocks.Var
@@ -17,7 +18,7 @@ namespace Linking.Core.Blocks.Var
             throw new NotImplementedException();
         }
 
-        public Core.Var.Variable Variable { get; set; }
+        public Variable Variable { get; set; }
         
         public DeclareVariableBlock(Board board, Node parent = null) : base(board, parent)
         {
@@ -34,7 +35,7 @@ namespace Linking.Core.Blocks.Var
             base.ConnectTo(block, index);
         }
 
-        public override void Execute(Core.Var.VariableTable table)
+        public override void Execute(VariableTable table)
         {
             if (Variable == null)
                 throw new VariableException("변수가 비어있습니다.");
