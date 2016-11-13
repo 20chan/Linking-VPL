@@ -57,5 +57,8 @@ namespace Linking.Core.Blocks.Var
 
         public static ChangeVariableValueBlock VarVal(Board board, string name, object value, Func<object, object, object> func)
             => new ChangeVariableValueBlock(board, name, null, (b, v) => func(b._table[name].Value, value));
+
+        public static ChangeVariableValueBlock VarVal(Board board, string name, object value)
+             => new ChangeVariableValueBlock(board, name, null, (b, v) => value);
     }
 }

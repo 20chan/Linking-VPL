@@ -21,8 +21,7 @@ namespace Linking.Core.Blocks
         {
             throw new NotImplementedException();
         }
-
-        // TODO: Condition클래스로 대체
+        
         public virtual Condition Condition { get; set; }
 
         public ConditionBlock(Board board, Node parent = null, Condition condition = null) : base(board, parent)
@@ -41,7 +40,7 @@ namespace Linking.Core.Blocks
             if (Condition == null)
                 throw new ArgumentNullException("Condition");
 
-            if (Condition.Check())
+            if (Condition.Check(Board))
                 Next = _linked[0];
             else
                 Next = _linked[1];
