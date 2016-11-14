@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\BlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BlockControl.Designer.cs">
+      <DependentUpon>BlockControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Block.cs" />
     <Compile Include="Core\Blocks\ConditionBlock.cs" />
     <Compile Include="Core\Blocks\Var\ChangeVariableValueBlock.cs" />
