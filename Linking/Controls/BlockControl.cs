@@ -6,14 +6,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Linking.Core;
+using Linking.Core.Blocks;
 
 namespace Linking.Controls
 {
     public partial class BlockControl : UserControl
     {
-        public BlockControl()
+        private Block _block;
+        public BlockControl(Block block)
         {
             InitializeComponent();
+            _block = block;
         }
     }
 }
