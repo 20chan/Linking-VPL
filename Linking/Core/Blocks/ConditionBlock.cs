@@ -17,10 +17,6 @@ namespace Linking.Core.Blocks
                 throw new NotImplementedException();
             }
         }
-        protected override Control CreateControlInstance()
-        {
-            throw new NotImplementedException();
-        }
         
         public virtual Condition Condition { get; set; }
 

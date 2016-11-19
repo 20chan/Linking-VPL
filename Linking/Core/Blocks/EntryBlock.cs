@@ -12,10 +12,6 @@ namespace Linking.Core.Blocks
                 return new Label() { Text = "Entry" };
             }
         }
-        protected override Control CreateControlInstance()
-        {
-            throw new NotImplementedException();
-        }
         
         public EntryBlock(Board board, Node parent = null) : base(board, parent)
         {

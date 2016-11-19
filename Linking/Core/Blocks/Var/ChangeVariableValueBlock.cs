@@ -16,10 +16,6 @@ namespace Linking.Core.Blocks.Var
                 throw new NotImplementedException();
             }
         }
-        protected override Control CreateControlInstance()
-        {
-            throw new NotImplementedException();
-        }
 
         public string Name { get; set; }
         public Func<Board, object, object> Delegate { get; set; }

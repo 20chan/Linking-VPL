@@ -13,10 +13,6 @@ namespace Linking.Core.Blocks.Var
                 throw new NotImplementedException();
             }
         }
-        protected override Control CreateControlInstance()
-        {
-            throw new NotImplementedException();
-        }
 
         public Variable Variable { get; set; }
         

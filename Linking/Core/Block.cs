@@ -3,7 +3,6 @@
     public abstract class Block : Node
     {
         public abstract System.Windows.Forms.Control Control { get; }
-        protected abstract System.Windows.Forms.Control CreateControlInstance();
 
         public Board Board { get; }
         public bool IsBreakPoint { get; set; } = false;
