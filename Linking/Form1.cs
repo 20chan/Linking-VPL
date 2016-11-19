@@ -16,6 +16,7 @@ namespace Linking
     {
         public Form1()
         {
+            //이것도 커밋해 보시지!!
             InitializeComponent();
             Board board = new Board();
 
