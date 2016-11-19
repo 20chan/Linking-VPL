@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Linking.Core.Var;
-using Linking.Core.Cond;
+using Linking.Core.Conds;
 
 namespace Linking.Core.Blocks
 {

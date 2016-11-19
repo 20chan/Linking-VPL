@@ -30,7 +30,8 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.InnerPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnIn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.InnerPanel, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -65,15 +67,23 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(50, 144);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // button1
+            // btnIn
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(6, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 138);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnIn.Location = new System.Drawing.Point(6, 6);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(44, 138);
+            this.btnIn.TabIndex = 1;
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // InnerPanel
+            // 
+            this.InnerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InnerPanel.Location = new System.Drawing.Point(59, 6);
+            this.InnerPanel.Name = "InnerPanel";
+            this.InnerPanel.Size = new System.Drawing.Size(169, 138);
+            this.InnerPanel.TabIndex = 2;
             // 
             // BlockControl
             // 
@@ -91,6 +101,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.Panel InnerPanel;
     }
 }

@@ -6,7 +6,7 @@ using Linking.Core;
 using Linking.Core.Blocks;
 using Linking.Core.Blocks.Var;
 using Linking.Core.Var;
-using Linking.Core.Cond;
+using Linking.Core.Conds;
 
 namespace Blocks_Test
 {

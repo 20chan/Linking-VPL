@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 
-namespace Linking.Core.Cond
+namespace Linking.Core.Conds
 {
     public class Condition
     {

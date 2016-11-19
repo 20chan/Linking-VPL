@@ -10,12 +10,15 @@ namespace Linking.Controls
         public Action TriedToLinkIn;
         public Action<int> TriedToLinkOut;
 
+        public ControlCollection InnerControls => InnerPanel.Controls;
+
         private Block _block;
         public BlockControl(Block block)
         {
             InitializeComponent();
             _block = block;
             InitLinkOutButtons();
+            InnerControls.Add(block.Control);
         }
 
         private void InitLinkOutButtons()
