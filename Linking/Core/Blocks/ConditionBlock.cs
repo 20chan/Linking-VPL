@@ -18,9 +18,9 @@ namespace Linking.Core.Blocks
             }
         }
         
-        public virtual Condition Condition { get; set; }
+        public virtual ConditionBoolBlock Condition{ get; set; }
 
-        public ConditionBlock(Board board, Node parent = null, Condition condition = null) : base(board, parent)
+        public ConditionBlock(Board board, Node parent = null, ConditionBoolBlock condition = null) : base(board, parent)
         {
             _linked = new Block[2];
             Condition = condition;
@@ -37,7 +37,7 @@ namespace Linking.Core.Blocks
             if (Condition == null)
                 throw new ArgumentNullException("Condition");
 
-            if (Condition.Check(Board))
+            if (this.Condition.GetValue(table))
                 Next = _linked[0];
             else
                 Next = _linked[1];
