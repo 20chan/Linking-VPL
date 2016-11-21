@@ -33,6 +33,7 @@ namespace Linking.Core.Blocks
 
         public override void Execute(VariableTable table)
         {
+            base.Execute(table);
             if (Condition == null)
                 throw new ArgumentNullException("Condition");
 
@@ -40,7 +41,6 @@ namespace Linking.Core.Blocks
                 Next = _linked[0];
             else
                 Next = _linked[1];
-            base.Execute(table);
         }
     }
 }

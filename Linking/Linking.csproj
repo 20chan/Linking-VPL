@@ -50,6 +50,12 @@
     <Compile Include="Controls\BlockControl.Designer.cs">
       <DependentUpon>BlockControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BoardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BoardControl.Designer.cs">
+      <DependentUpon>BoardControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Block.cs" />
     <Compile Include="Core\Blocks\ConditionBlock.cs" />
     <Compile Include="Core\Blocks\Var\ChangeVariableValueBlock.cs" />

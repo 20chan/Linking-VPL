@@ -33,13 +33,13 @@ namespace Linking.Core.Blocks.Var
 
         public override void Execute(VariableTable table)
         {
+            base.Execute(table);
             if (Variable == null)
                 throw new VariableException("변수가 비어있습니다.");
             if (table.Contains(Variable))
                 throw new VariableException("이미 같은 이름의 변수가 정의되어 있습니다.");
             table.Add(Variable);
             Next = _linked[0];
-            base.Execute(table);
         }
     }
 }

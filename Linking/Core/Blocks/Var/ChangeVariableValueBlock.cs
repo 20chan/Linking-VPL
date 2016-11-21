@@ -39,13 +39,13 @@ namespace Linking.Core.Blocks.Var
 
         public override void Execute(VariableTable table)
         {
+            base.Execute(table);
             if (string.IsNullOrEmpty(Name))
                 throw new VariableException("변수가 비어있습니다.");
             if (!table.Contains(Name))
                 throw new VariableException("변수가 정의되어 있지 않습니다.");
             table[Name].Value = Delegate(this.Board, table[Name].Value);
             Next = _linked[0];
-            base.Execute(table);
         }
 
         public static ChangeVariableValueBlock VarVar(Board board, string name, string opName, Func<object, object, object> func)

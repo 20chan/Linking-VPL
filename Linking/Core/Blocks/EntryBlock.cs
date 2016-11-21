@@ -30,8 +30,8 @@ namespace Linking.Core.Blocks
 
         public override void Execute(Core.Var.VariableTable table)
         {
-            Next = LinkedBlocks[0];
             base.Execute(table);
+            Next = LinkedBlocks[0];
         }
     }
 }

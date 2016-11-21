@@ -4,6 +4,8 @@
     {
         public abstract System.Windows.Forms.Control Control { get; }
 
+        public bool IsExecuting { get; set; }
+
         public Board Board { get; }
         public bool IsBreakPoint { get; set; } = false;
 
@@ -66,7 +68,7 @@
 
         public virtual void Execute(Var.VariableTable table)
         {
-
+            IsExecuting = true;
         }
     }
 }
