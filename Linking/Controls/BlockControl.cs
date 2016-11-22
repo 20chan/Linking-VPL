@@ -7,16 +7,16 @@ namespace Linking.Controls
 {
     public partial class BlockControl : UserControl
     {
-        public Action TriedToLinkIn;
-        public Action<int> TriedToLinkOut;
+        public event EventHandler TriedToLinkIn;
+        public event EventHandler TriedToLinkOut;
 
         public ControlCollection InnerControls => InnerPanel.Controls;
 
-        private Block _block;
+        public Block Block { get; private set; }
         public BlockControl(Block block)
         {
             InitializeComponent();
-            _block = block;
+            Block = block;
             InitLinkOutButtons();
             InnerControls.Add(block.Control);
         }
@@ -24,13 +24,13 @@ namespace Linking.Controls
         private void InitLinkOutButtons()
         {
             tableLayoutPanel2.RowStyles.Clear();
-            for (int i = 0; i < _block.LinkedBlocks.Length; i++)
+            for (int i = 0; i < Block.LinkedBlocks.Length; i++)
             {
                 OutButton b = new OutButton(i);
                 b.Dock = DockStyle.Fill;
                 b.Text = string.Empty;
                 b.Click += B_Click;
-                tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / _block.LinkedBlocks.Length));
+                tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / Block.LinkedBlocks.Length));
                 tableLayoutPanel2.Controls.Add(b);
             }
         }
@@ -38,14 +38,23 @@ namespace Linking.Controls
         private void B_Click(object sender, EventArgs e)
         {
             int index = ((OutButton)sender).Index;
-            TriedToLinkOut?.Invoke(index);
+            TriedToLinkOut?.Invoke(this, new LinkOutEventArgs(index));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TriedToLinkIn?.Invoke();
+            TriedToLinkIn?.Invoke(this, new EventArgs());
         }
 
         private class OutButton: Button { public readonly int Index; public OutButton(int index) { Index = index; } }
+    }
+
+    internal class LinkOutEventArgs : EventArgs
+    {
+        public int Index { get; set; }
+        public LinkOutEventArgs(int index) : base()
+        {
+            Index = index;
+        }
     }
 }

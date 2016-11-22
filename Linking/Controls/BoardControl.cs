@@ -13,12 +13,51 @@ namespace Linking.Controls
     public partial class BoardControl : UserControl
     {
         public Board Board { get; private set; }
+        private List<Block> _blocks;
+
+        private bool _isLinking;
+        private BlockControl _linking;
+        private int _linkIndex;
 
         public BoardControl(Board board)
         {
             InitializeComponent();
-
+            _blocks = new List<Block>();
             Board = board;
+        }
+
+        public void AddBlock(Block block)
+        {
+            BlockControl bc = new BlockControl(block);
+            _blocks.Add(block);
+            bc.TriedToLinkIn += Bc_TriedToLinkIn;
+            bc.TriedToLinkOut += Bc_TriedToLinkOut;
+            this.Controls.Add(bc);
+        }
+
+        private void Bc_TriedToLinkIn(object sender, EventArgs e)
+        {
+            if(!_isLinking)
+            {
+                _isLinking = false;
+                return;
+            }
+
+            _isLinking = false;
+            Block.Connect(_linking.Block, (sender as BlockControl).Block, _linkIndex);
+        }
+
+        private void Bc_TriedToLinkOut(object sender, EventArgs e)
+        {
+            if (_isLinking)
+            {
+                _isLinking = false;
+                return;
+            }
+
+            _isLinking = true;
+            _linking = sender as BlockControl;
+            _linkIndex = (e as LinkOutEventArgs).Index;
         }
     }
 }
