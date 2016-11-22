@@ -32,6 +32,12 @@ namespace Linking.Controls
             _blocks.Add(block);
             bc.TriedToLinkIn += Bc_TriedToLinkIn;
             bc.TriedToLinkOut += Bc_TriedToLinkOut;
+
+            /* 이거 드래그로 컨트롤 움직이는거 구현해야겠찌..
+            bc.MouseDown += (b, d) => { };
+            bc.MouseMove += (b, d) => { };
+            */
+
             this.Controls.Add(bc);
         }
 
