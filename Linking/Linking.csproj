@@ -56,6 +56,12 @@
     <Compile Include="Controls\BoardControl.Designer.cs">
       <DependentUpon>BoardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\InnerBlock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InnerBlock.Designer.cs">
+      <DependentUpon>InnerBlock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Block.cs" />
     <Compile Include="Core\Blocks\BoolBlock.cs" />
     <Compile Include="Core\Blocks\ConditionBlock.cs" />
