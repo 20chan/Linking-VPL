@@ -41,7 +41,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnIn, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.InnerPanel, 1, 0);
@@ -58,13 +58,13 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(234, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(231, 3);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(50, 144);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(53, 144);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnIn
@@ -82,7 +82,7 @@
             this.InnerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InnerPanel.Location = new System.Drawing.Point(59, 6);
             this.InnerPanel.Name = "InnerPanel";
-            this.InnerPanel.Size = new System.Drawing.Size(169, 138);
+            this.InnerPanel.Size = new System.Drawing.Size(166, 138);
             this.InnerPanel.TabIndex = 2;
             // 
             // BlockControl

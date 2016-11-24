@@ -67,6 +67,7 @@
     <Compile Include="Core\Blocks\ConditionBlock.cs" />
     <Compile Include="Core\Blocks\IntegerBlock.cs" />
     <Compile Include="Core\Blocks\ValueBlock.cs" />
+    <Compile Include="Core\Blocks\ValueType.cs" />
     <Compile Include="Core\Blocks\Var\ChangeVariableValueBlock.cs" />
     <Compile Include="Core\Blocks\Var\DeclareVariableBlock.cs" />
     <Compile Include="Core\Blocks\EntryBlock.cs" />
