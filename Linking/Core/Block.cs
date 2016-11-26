@@ -6,6 +6,18 @@
         public virtual System.Drawing.Size Size
             => Control.Size;
 
+        private System.Drawing.Point _location;
+        public System.Drawing.Point Location
+        {
+            get { return _location; }
+            set
+            {
+                _location = value;
+                LocationChanged?.Invoke(this, null);
+            }
+        }
+        public event System.EventHandler LocationChanged;
+
         public bool IsExecuting { get; set; }
 
         public Board Board { get; }

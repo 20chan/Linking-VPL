@@ -30,8 +30,10 @@ namespace Linking.Controls
         {
             BlockControl bc = new BlockControl(block);
             _blocks.Add(block);
+            bc.Location = block.Location;
             bc.TriedToLinkIn += Bc_TriedToLinkIn;
             bc.TriedToLinkOut += Bc_TriedToLinkOut;
+            block.LocationChanged += (a, b) => bc.Location = block.Location;
 
             /* 이거 드래그로 컨트롤 움직이는거 구현해야겠찌..
             bc.MouseDown += (b, d) => { };
