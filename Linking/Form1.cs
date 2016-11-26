@@ -14,11 +14,14 @@ namespace Linking
             //이것도 커밋해 보시지!!
             InitializeComponent();
             Board board = new Board();
+            BoardControl boardCtrl = new BoardControl(board);
+            boardCtrl.Dock = DockStyle.Fill;
+            this.Controls.Add(boardCtrl);
 
             EntryBlock entry = new EntryBlock(board);
             BlockControl b = new BlockControl(entry);
             b.Location = new Point(50, 50);
-            this.Controls.Add(b);
+            boardCtrl.AddBlock(entry);
         }
     }
 }

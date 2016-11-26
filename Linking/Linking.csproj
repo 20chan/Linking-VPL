@@ -50,6 +50,12 @@
     <Compile Include="Controls\BlockControl.Designer.cs">
       <DependentUpon>BlockControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Blocks\EntryBlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Blocks\EntryBlockControl.Designer.cs">
+      <DependentUpon>EntryBlockControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BoardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\BlockControl.resx">
       <DependentUpon>BlockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Blocks\EntryBlockControl.resx">
+      <DependentUpon>EntryBlockControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BoardControl.resx">
       <DependentUpon>BoardControl.cs</DependentUpon>

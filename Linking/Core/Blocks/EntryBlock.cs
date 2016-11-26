@@ -10,7 +10,7 @@ namespace Linking.Core.Blocks
         {
             get
             {
-                return new Label() { Text = "Entry" };
+                return new Controls.Blocks.EntryBlockControl(this);
             }
         }
 
