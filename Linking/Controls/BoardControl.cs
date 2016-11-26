@@ -28,6 +28,8 @@ namespace Linking.Controls
 
         public void AddBlock(Block block)
         {
+            block.Parent = this.Board;
+
             BlockControl bc = new BlockControl(block);
             _blocks.Add(block);
             bc.Location = block.Location;
@@ -41,6 +43,12 @@ namespace Linking.Controls
             */
 
             this.Controls.Add(bc);
+        }
+
+        public void AddBlocks(params Block[] blocks)
+        {
+            foreach (var b in blocks)
+                AddBlock(b);
         }
 
         private void Bc_TriedToLinkIn(object sender, EventArgs e)
