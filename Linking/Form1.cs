@@ -19,8 +19,6 @@ namespace Linking
             this.Controls.Add(boardCtrl);
 
             EntryBlock entry = new EntryBlock(board);
-            BlockControl b = new BlockControl(entry);
-            b.Location = new Point(50, 50);
             boardCtrl.AddBlock(entry);
         }
     }
