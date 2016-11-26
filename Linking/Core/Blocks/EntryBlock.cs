@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Linking.Core.Blocks
@@ -12,7 +13,7 @@ namespace Linking.Core.Blocks
                 return new Label() { Text = "Entry" };
             }
         }
-        
+
         public EntryBlock(Board board, Node parent = null) : base(board, parent)
         {
             _linked = new Block[1];

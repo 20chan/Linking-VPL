@@ -16,6 +16,8 @@ namespace Linking.Controls
         public BlockControl(Block block)
         {
             InitializeComponent();
+            if (block is ValueBlock)
+                throw new NotSupportedException("ValueBlock");
             Block = block;
             InitLinkOutButtons();
             InnerControls.Add(block.Control);

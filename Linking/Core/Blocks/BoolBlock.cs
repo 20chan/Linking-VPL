@@ -46,18 +46,24 @@ namespace Linking.Core.Blocks
 
     public class VarBoolBlock : BoolBlock
     {
+        private TextBox _textBox = new TextBox();
         public override Control Control
         {
             get
             {
-                throw new NotImplementedException();
+                return _textBox;
             }
         }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return _textBox.Text; }
+            set { _textBox.Text = value; }
+        }
         public VarBoolBlock(Board board, Node parent, string name = "") : base(board, parent)
         {
             Name = name;
+
         }
 
         public override bool GetValue(VariableTable table)

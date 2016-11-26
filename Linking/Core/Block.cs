@@ -3,6 +3,8 @@
     public abstract class Block : Node
     {
         public abstract System.Windows.Forms.Control Control { get; }
+        public virtual System.Drawing.Size Size
+            => Control.Size;
 
         public bool IsExecuting { get; set; }
 
