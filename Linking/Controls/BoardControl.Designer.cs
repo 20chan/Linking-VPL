@@ -28,7 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.추가AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.추가AToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 26);
+            // 
+            // 추가AToolStripMenuItem
+            // 
+            this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
+            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.추가AToolStripMenuItem.Text = "추가(&A)";
             // 
             // BoardControl
             // 
@@ -36,10 +53,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "BoardControl";
             this.Size = new System.Drawing.Size(658, 416);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 추가AToolStripMenuItem;
     }
 }

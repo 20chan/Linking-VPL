@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="Core\Block.cs" />
     <Compile Include="Core\Blocks\BoolBlock.cs" />
+    <Compile Include="Core\Blocks\CodeBlock.cs" />
     <Compile Include="Core\Blocks\ConditionBlock.cs" />
     <Compile Include="Core\Blocks\IntegerBlock.cs" />
     <Compile Include="Core\Blocks\ValueBlock.cs" />
