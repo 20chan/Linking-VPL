@@ -24,11 +24,15 @@ namespace Linking.Core.Blocks
         {
             get
             {
-                throw new NotImplementedException();
+                return new Controls.Blocks.ConstBoolBlockControl(this);
             }
         }
 
-        public bool Value { get; set; }
+        public bool Value
+        {
+            get { return ((Controls.Blocks.ConstBoolBlockControl)Control).Value; }
+            set { ((Controls.Blocks.ConstBoolBlockControl)Control).Value = value; }
+        }
         public ConstBoolBlock(Board board, Node parent) : base(board, parent)
         {
 
