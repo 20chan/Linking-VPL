@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Linking.Core;
+using Linking.Core.Blocks;
+using Linking.Controls.Blocks;
 
 namespace Linking.Controls
 {
@@ -44,7 +46,7 @@ namespace Linking.Controls
 
             this.Controls.Add(bc);
         }
-
+        
         public void AddBlocks(params Block[] blocks)
         {
             foreach (var b in blocks)
@@ -74,6 +76,41 @@ namespace Linking.Controls
             _isLinking = true;
             _linking = sender as BlockControl;
             _linkIndex = (e as LinkOutEventArgs).Index;
+        }
+
+        Point _lastRightClicked;
+        private void BoardControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            _lastRightClicked = new Point(e.X, e.Y);
+        }
+
+        private void 선언DToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void 값VToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 같다면TToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 다르다면FToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConditionBlock block = new ConditionBlock(Board, Board);
+            block.Control.Location = _lastRightClicked;
+            AddBlock(block);
+        }
+
+        private void 조건문CToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConditionBlock block = new ConditionBlock(Board, Board);
+            block.Location = _lastRightClicked;
+            AddBlock(block);
         }
     }
 }

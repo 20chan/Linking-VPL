@@ -63,6 +63,12 @@
     <Compile Include="Controls\Blocks\ConstBoolBlockControl.Designer.cs">
       <DependentUpon>ConstBoolBlockControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Blocks\DeclareVarBlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Blocks\DeclareVarBlockControl.Designer.cs">
+      <DependentUpon>DeclareVarBlockControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Blocks\EntryBlockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Blocks\ConstBoolBlockControl.resx">
       <DependentUpon>ConstBoolBlockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Blocks\DeclareVarBlockControl.resx">
+      <DependentUpon>DeclareVarBlockControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Blocks\EntryBlockControl.resx">
       <DependentUpon>EntryBlockControl.cs</DependentUpon>

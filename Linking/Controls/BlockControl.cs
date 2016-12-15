@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Linking.Core;
 using Linking.Core.Blocks;
@@ -21,6 +22,14 @@ namespace Linking.Controls
             Block = block;
             InitLinkOutButtons();
             InnerControls.Add(block.Control);
+
+            block.Control.SizeChanged += Control_SizeChanged;
+            InitSize();
+        }
+
+        private void Control_SizeChanged(object sender, EventArgs e)
+        {
+            InitSize();
         }
 
         private void InitLinkOutButtons()
@@ -35,6 +44,12 @@ namespace Linking.Controls
                 tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / Block.LinkedBlocks.Length));
                 tableLayoutPanel2.Controls.Add(b);
             }
+        }
+
+        private void InitSize()
+        {
+            Size siz = Block.Control.Size;
+            this.Size = new Size(siz.Width + 124, siz.Height + 22);
         }
 
         private void B_Click(object sender, EventArgs e)

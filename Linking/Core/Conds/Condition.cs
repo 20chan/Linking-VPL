@@ -6,7 +6,7 @@ namespace Linking.Core.Conds
     public class Condition
     {
         private Func<Board, bool> _conditionDelegate;
-        protected Condition(Func<Board, bool> cond = null)
+        private Condition(Func<Board, bool> cond = null)
         {
             _conditionDelegate = cond;
         }

@@ -20,10 +20,7 @@ namespace Linking
 
             EntryBlock entry = new EntryBlock(board);
             entry.Location = new Point(00, 50);
-
-            EntryBlock entry2 = new EntryBlock(board);
-            entry2.Location = new Point(300, 50);
-            boardCtrl.AddBlocks(entry, entry2);
+            boardCtrl.AddBlocks(entry);
         }
     }
 }

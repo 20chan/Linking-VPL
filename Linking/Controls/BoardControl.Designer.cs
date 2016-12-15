@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.추가AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.변수VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.선언DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.값VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.조건문CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.같다면TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.다르다면FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,20 +45,72 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.추가AToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 26);
             // 
             // 추가AToolStripMenuItem
             // 
+            this.추가AToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.변수VToolStripMenuItem,
+            this.조건문CToolStripMenuItem});
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
-            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
+            // 
+            // 변수VToolStripMenuItem
+            // 
+            this.변수VToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.선언DToolStripMenuItem,
+            this.값VToolStripMenuItem});
+            this.변수VToolStripMenuItem.Name = "변수VToolStripMenuItem";
+            this.변수VToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.변수VToolStripMenuItem.Text = "변수(&V)";
+            // 
+            // 선언DToolStripMenuItem
+            // 
+            this.선언DToolStripMenuItem.Name = "선언DToolStripMenuItem";
+            this.선언DToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.선언DToolStripMenuItem.Text = "선언(&D)";
+            this.선언DToolStripMenuItem.Click += new System.EventHandler(this.선언DToolStripMenuItem_Click);
+            // 
+            // 값VToolStripMenuItem
+            // 
+            this.값VToolStripMenuItem.Name = "값VToolStripMenuItem";
+            this.값VToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.값VToolStripMenuItem.Text = "값(&V)";
+            this.값VToolStripMenuItem.Click += new System.EventHandler(this.값VToolStripMenuItem_Click);
+            // 
+            // 조건문CToolStripMenuItem
+            // 
+            this.조건문CToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.같다면TToolStripMenuItem,
+            this.다르다면FToolStripMenuItem});
+            this.조건문CToolStripMenuItem.Name = "조건문CToolStripMenuItem";
+            this.조건문CToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.조건문CToolStripMenuItem.Text = "조건문(&C)";
+            this.조건문CToolStripMenuItem.Click += new System.EventHandler(this.조건문CToolStripMenuItem_Click);
+            // 
+            // 같다면TToolStripMenuItem
+            // 
+            this.같다면TToolStripMenuItem.Name = "같다면TToolStripMenuItem";
+            this.같다면TToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.같다면TToolStripMenuItem.Text = "같다면(&T)";
+            this.같다면TToolStripMenuItem.Click += new System.EventHandler(this.같다면TToolStripMenuItem_Click);
+            // 
+            // 다르다면FToolStripMenuItem
+            // 
+            this.다르다면FToolStripMenuItem.Name = "다르다면FToolStripMenuItem";
+            this.다르다면FToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.다르다면FToolStripMenuItem.Text = "다르다면(&F)";
+            this.다르다면FToolStripMenuItem.Click += new System.EventHandler(this.다르다면FToolStripMenuItem_Click);
             // 
             // BoardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Name = "BoardControl";
             this.Size = new System.Drawing.Size(658, 416);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BoardControl_MouseDown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -62,5 +120,11 @@
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 추가AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 변수VToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 조건문CToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 선언DToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 값VToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 같다면TToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 다르다면FToolStripMenuItem;
     }
 }
