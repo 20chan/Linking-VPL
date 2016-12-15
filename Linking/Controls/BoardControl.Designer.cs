@@ -39,12 +39,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.추가AToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
             // 
             // 추가AToolStripMenuItem
             // 
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
-            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
             // 
             // BoardControl

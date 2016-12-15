@@ -6,17 +6,13 @@ namespace Linking.Core.Blocks
 {
     public class EntryBlock : Block
     {
-        public override Control Control
-        {
-            get
-            {
-                return new Controls.Blocks.EntryBlockControl(this);
-            }
-        }
+        private Controls.Blocks.EntryBlockControl _control;
+        public override Control Control => _control;
 
         public EntryBlock(Board board, Node parent = null) : base(board, parent)
         {
             _linked = new Block[1];
+            _control = new Controls.Blocks.EntryBlockControl(this);
         }
 
         protected override void ConnectFrom(Block block)

@@ -4,7 +4,7 @@ using Linking.Core.Blocks;
 
 namespace Linking.Controls.Blocks
 {
-    public partial class ConstBoolBlockControl : UserControl
+    public partial class ConstBoolBlockControl : UserControl, IBoolBlockControl
     {
         public bool Value
         {

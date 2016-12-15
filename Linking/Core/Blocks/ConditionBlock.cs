@@ -5,25 +5,22 @@ using System.Text;
 using System.Windows.Forms;
 using Linking.Core.Var;
 using Linking.Core.Conds;
+using Linking.Controls.Blocks;
 
 namespace Linking.Core.Blocks
 {
     public class ConditionBlock : Block
     {
-        public override Control Control
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        private ConditionBlockControl _control;
+        public override Control Control => _control;
         
-        public virtual ConditionBoolBlock Condition{ get; set; }
+        public virtual BoolBlock Condition { get; set; }
 
-        public ConditionBlock(Board board, Node parent = null, ConditionBoolBlock condition = null) : base(board, parent)
+        public ConditionBlock(Board board, Node parent = null, BoolBlock condition = null) : base(board, parent)
         {
             _linked = new Block[2];
             Condition = condition;
+            _control = new ConditionBlockControl(this);
         }
 
         protected override void ConnectTo(Block block, int index)

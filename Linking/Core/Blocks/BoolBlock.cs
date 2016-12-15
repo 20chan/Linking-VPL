@@ -20,13 +20,8 @@ namespace Linking.Core.Blocks
 
     public class ConstBoolBlock : BoolBlock
     {
-        public override Control Control
-        {
-            get
-            {
-                return new Controls.Blocks.ConstBoolBlockControl(this);
-            }
-        }
+        private Controls.Blocks.ConstBoolBlockControl _control;
+        public override Control Control => _control;
 
         public bool Value
         {
@@ -35,7 +30,7 @@ namespace Linking.Core.Blocks
         }
         public ConstBoolBlock(Board board, Node parent) : base(board, parent)
         {
-
+            _control = new Controls.Blocks.ConstBoolBlockControl(this);
         }
 
         public override bool GetValue(VariableTable table)
