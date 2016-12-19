@@ -111,11 +111,20 @@ namespace Linking.Controls
             ConditionBlock block = new ConditionBlock(Board, Board);
             block.Location = _lastRightClicked;
             AddBlock(block);
+
+            this.contextMenuStrip1.Close();
         }
 
         private void 실행RToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Board.Run();
+        }
+
+        private void 출력ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBoxBlock block = new MessageBoxBlock(Board, Board);
+            block.Location = _lastRightClicked;
+            AddBlock(block);
         }
     }
 }

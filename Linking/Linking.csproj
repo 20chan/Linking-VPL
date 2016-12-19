@@ -75,6 +75,12 @@
     <Compile Include="Controls\Blocks\EntryBlockControl.Designer.cs">
       <DependentUpon>EntryBlockControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Blocks\MessageBoxBlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Blocks\MessageBoxBlockControl.Designer.cs">
+      <DependentUpon>MessageBoxBlockControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BoardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +98,7 @@
     <Compile Include="Core\Blocks\CodeBlock.cs" />
     <Compile Include="Core\Blocks\ConditionBlock.cs" />
     <Compile Include="Core\Blocks\IntegerBlock.cs" />
+    <Compile Include="Core\Blocks\MessageBoxBlock.cs" />
     <Compile Include="Core\Blocks\ValueBlock.cs" />
     <Compile Include="Core\Blocks\ValueType.cs" />
     <Compile Include="Core\Blocks\Var\ChangeVariableValueBlock.cs" />
@@ -125,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Blocks\EntryBlockControl.resx">
       <DependentUpon>EntryBlockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Blocks\MessageBoxBlockControl.resx">
+      <DependentUpon>MessageBoxBlockControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BoardControl.resx">
       <DependentUpon>BoardControl.cs</DependentUpon>
