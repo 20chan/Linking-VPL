@@ -6,11 +6,12 @@ namespace Linking.Controls.Blocks
 {
     public partial class ConstBoolBlockControl : UserControl, IBoolBlockControl
     {
+        private bool _value = true;
         public bool Value
         {
             get
             {
-                return this.comboBox1.SelectedIndex == 0;
+                return _value;
             }
             set
             {
@@ -22,6 +23,15 @@ namespace Linking.Controls.Blocks
         {
             InitializeComponent();
             _block = block;
+
+            comboBox1.Items.Add("참");
+            comboBox1.Items.Add("거짓");
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            _value = ((ComboBox)sender).SelectedIndex == 0;
         }
     }
 }

@@ -24,6 +24,7 @@ namespace Linking.Controls.Blocks
         {
             var val = new ConstBoolBlock(_block.Board, _block);
             ConstBoolBlockControl block = new ConstBoolBlockControl(val);
+            block.Dock = DockStyle.Fill;
             _inner = block;
             if (panel1.Controls.Count > 0)
                 panel1.Controls.Clear();

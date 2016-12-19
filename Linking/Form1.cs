@@ -21,6 +21,7 @@ namespace Linking
             EntryBlock entry = new EntryBlock(board);
             entry.Location = new Point(00, 50);
             boardCtrl.AddBlocks(entry);
+            board.Entry = entry;
         }
     }
 }

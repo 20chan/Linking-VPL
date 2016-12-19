@@ -37,15 +37,17 @@
             this.조건문CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.같다면TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.다르다면FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.실행RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.추가AToolStripMenuItem});
+            this.추가AToolStripMenuItem,
+            this.실행RToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // 추가AToolStripMenuItem
             // 
@@ -53,7 +55,7 @@
             this.변수VToolStripMenuItem,
             this.조건문CToolStripMenuItem});
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
-            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
             // 
             // 변수VToolStripMenuItem
@@ -103,6 +105,14 @@
             this.다르다면FToolStripMenuItem.Text = "다르다면(&F)";
             this.다르다면FToolStripMenuItem.Click += new System.EventHandler(this.다르다면FToolStripMenuItem_Click);
             // 
+            // 실행RToolStripMenuItem
+            // 
+            this.실행RToolStripMenuItem.Name = "실행RToolStripMenuItem";
+            this.실행RToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.실행RToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.실행RToolStripMenuItem.Text = "실행(&R)";
+            this.실행RToolStripMenuItem.Click += new System.EventHandler(this.실행RToolStripMenuItem_Click);
+            // 
             // BoardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -126,5 +136,6 @@
         private System.Windows.Forms.ToolStripMenuItem 값VToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 같다면TToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 다르다면FToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 실행RToolStripMenuItem;
     }
 }

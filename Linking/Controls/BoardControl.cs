@@ -112,5 +112,10 @@ namespace Linking.Controls
             block.Location = _lastRightClicked;
             AddBlock(block);
         }
+
+        private void 실행RToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Board.Run();
+        }
     }
 }
