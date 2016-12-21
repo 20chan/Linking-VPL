@@ -26,25 +26,47 @@ namespace Linking.Controls
             InitializeComponent();
             _blocks = new List<Block>();
             Board = board;
+            _pen = new Pen(Color.Red, 8f);
+            _pen.StartCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
+            _pen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+        }
+
+        private Pen _pen;
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            foreach(var b in _blocks)
+            {
+                foreach(var lb in b.LinkedBlocks)
+                {
+                    if(lb != null)
+                        e.Graphics.DrawLine(_pen, 
+                            b.Location.X + b.OuterControl.Width, 
+                            b.Location.Y + b.OuterControl.Height / 2, 
+                            lb.Location.X,
+                            lb.Location.Y + lb.OuterControl.Height / 2);
+                }
+            }
+            base.OnPaint(e);
         }
 
         public void AddBlock(Block block)
         {
             block.Parent = this.Board;
-
-            BlockControl bc = new BlockControl(block);
+            
             _blocks.Add(block);
-            bc.Location = block.Location;
-            bc.TriedToLinkIn += Bc_TriedToLinkIn;
-            bc.TriedToLinkOut += Bc_TriedToLinkOut;
-            block.LocationChanged += (a, b) => bc.Location = block.Location;
+
+            block.OuterControl = new BlockControl(block);
+            block.OuterControl.Location = block.Location;
+            block.OuterControl.TriedToLinkIn += Bc_TriedToLinkIn;
+            block.OuterControl.TriedToLinkOut += Bc_TriedToLinkOut;
+            block.LocationChanged += (a, b) => block.OuterControl.Location = block.Location;
 
             /* 이거 드래그로 컨트롤 움직이는거 구현해야겠찌..
             bc.MouseDown += (b, d) => { };
             bc.MouseMove += (b, d) => { };
             */
 
-            this.Controls.Add(bc);
+            this.Controls.Add(block.OuterControl);
         }
         
         public void AddBlocks(params Block[] blocks)
@@ -63,6 +85,8 @@ namespace Linking.Controls
 
             _isLinking = false;
             Block.Connect(_linking.Block, (sender as BlockControl).Block, _linkIndex);
+
+            Invalidate();
         }
 
         private void Bc_TriedToLinkOut(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 {
     public abstract class Block : Node
     {
+        public Linking.Controls.BlockControl OuterControl { get; internal set; }
         public abstract System.Windows.Forms.Control Control { get; }
         public virtual System.Drawing.Size Size
             => Control.Size;
