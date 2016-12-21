@@ -10,6 +10,7 @@ namespace Linking.Controls
     {
         public event EventHandler TriedToLinkIn;
         public event EventHandler TriedToLinkOut;
+        public event Action NeedInvalidate;
 
         public ControlCollection InnerControls => InnerPanel.Controls;
 
@@ -61,6 +62,21 @@ namespace Linking.Controls
         private void button1_Click(object sender, EventArgs e)
         {
             TriedToLinkIn?.Invoke(this, new EventArgs());
+        }
+        
+        private void btnIn_MouseDown(object sender, MouseEventArgs e)
+        {
+            ((Control)sender).Tag = new Point(e.X, e.Y);
+        }
+
+        private void btnIn_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+                return;
+            var s = (Control)sender;
+            Left = Left + (e.X - ((Point)s.Tag).X);
+            Top = Top + (e.Y - ((Point)s.Tag).Y);
+            NeedInvalidate?.Invoke();
         }
 
         private class OutButton: Button { public readonly int Index; public OutButton(int index) { Index = index; } }

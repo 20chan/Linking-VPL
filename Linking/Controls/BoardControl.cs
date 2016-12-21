@@ -36,14 +36,23 @@ namespace Linking.Controls
         {
             foreach(var b in _blocks)
             {
-                foreach(var lb in b.LinkedBlocks)
+                for(int i = 0; i < b.LinkedBlocks.Length; i++)
                 {
+                    var lb = b.LinkedBlocks[i];
+                    if (i == 0)
+                        _pen.Color = Color.Red;
+                    else if (i == 1)
+                        _pen.Color = Color.Blue;
+                    else if (i == 1)
+                        _pen.Color = Color.Green;
+                    else
+                        _pen.Color = Color.Pink;
                     if(lb != null)
                         e.Graphics.DrawLine(_pen, 
-                            b.Location.X + b.OuterControl.Width, 
-                            b.Location.Y + b.OuterControl.Height / 2, 
-                            lb.Location.X,
-                            lb.Location.Y + lb.OuterControl.Height / 2);
+                            b.OuterControl.Location.X + b.OuterControl.Width, 
+                            b.OuterControl.Location.Y + b.OuterControl.Height / 2, 
+                            lb.OuterControl.Location.X,
+                            lb.OuterControl.Location.Y + lb.OuterControl.Height / 2);
                 }
             }
             base.OnPaint(e);
@@ -60,12 +69,7 @@ namespace Linking.Controls
             block.OuterControl.TriedToLinkIn += Bc_TriedToLinkIn;
             block.OuterControl.TriedToLinkOut += Bc_TriedToLinkOut;
             block.LocationChanged += (a, b) => block.OuterControl.Location = block.Location;
-
-            /* 이거 드래그로 컨트롤 움직이는거 구현해야겠찌..
-            bc.MouseDown += (b, d) => { };
-            bc.MouseMove += (b, d) => { };
-            */
-
+            block.OuterControl.NeedInvalidate += () => Invalidate();
             this.Controls.Add(block.OuterControl);
         }
         

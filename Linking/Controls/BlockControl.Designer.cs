@@ -76,6 +76,8 @@
             this.btnIn.TabIndex = 1;
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.button1_Click);
+            this.btnIn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnIn_MouseDown);
+            this.btnIn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnIn_MouseMove);
             // 
             // InnerPanel
             // 
