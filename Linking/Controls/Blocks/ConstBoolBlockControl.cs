@@ -11,6 +11,7 @@ namespace Linking.Controls.Blocks
         {
             get
             {
+                System.Diagnostics.Debug.WriteLine(Handle);
                 return _value;
             }
             set
@@ -31,6 +32,7 @@ namespace Linking.Controls.Blocks
 
         private void comboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine(Handle);
             _value = ((ComboBox)sender).SelectedIndex == 0;
         }
     }

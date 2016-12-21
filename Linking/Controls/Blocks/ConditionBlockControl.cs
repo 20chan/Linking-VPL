@@ -23,12 +23,10 @@ namespace Linking.Controls.Blocks
         private void 상수부울BToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var val = new ConstBoolBlock(_block.Board, _block);
-            ConstBoolBlockControl block = new ConstBoolBlockControl(val);
-            block.Dock = DockStyle.Fill;
-            _inner = block;
+            _inner = (ConstBoolBlockControl)val.Control;
             if (panel1.Controls.Count > 0)
                 panel1.Controls.Clear();
-            this.panel1.Controls.Add(block);
+            this.panel1.Controls.Add((ConstBoolBlockControl)val.Control);
 
             _block.Condition = val;
         }
