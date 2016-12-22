@@ -30,6 +30,7 @@ namespace Linking.Controls
             _pen = new Pen(Color.Red, 8f);
             _pen.StartCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
             _pen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+            DoubleBuffered = true;
         }
 
         private Pen _pen;
