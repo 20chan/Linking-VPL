@@ -34,7 +34,7 @@ namespace Linking.Core.Blocks.Var
         private object RValue(VariableTable table)
         {
             if (_control.ValueType == Conds.Condition.ValueType.Var)
-                return table[_control.Value.ToString()];
+                return table[_control.Value.ToString()].Value;
             else
                 return _control.Value;
         }
