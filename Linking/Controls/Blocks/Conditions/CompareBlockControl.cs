@@ -16,55 +16,56 @@ namespace Linking.Controls.Blocks.Conditions
         {
             get
             {
-                Condition result;
-                VarVal current = GetCurrentVarVal();
+                var result = new Condition();
+                var current = GetCurrentVarVal();
+
+                if(current.HasFlag(VarVal.LVal))
+                {
+                    result.LType = Condition.ValueType.Val;
+                    result.L = lcomboBox.SelectedIndex == 0 ? ltextBox.Text : 
+                        (lcomboBox.SelectedIndex == 1 ? (object)Convert.ToDouble(ltextBox.Text) : Convert.ToBoolean(ltextBox.Text));
+                }
+                else
+                {
+                    result.LType = Condition.ValueType.Var;
+                    result.L = ltextBox.Text;
+                }
+
+                if (current.HasFlag(VarVal.RVal))
+                {
+                    result.RType = Condition.ValueType.Val;
+                    result.R = rcomboBox.SelectedIndex == 0 ? rtextBox.Text :
+                        (rcomboBox.SelectedIndex == 1 ? (object)Convert.ToDouble(ltextBox.Text) : Convert.ToBoolean(ltextBox.Text));
+                }
+                else
+                {
+                    result.RType = Condition.ValueType.Var;
+                    result.R = rtextBox.Text;
+                }
+
                 switch(comboBox1.SelectedIndex)
                 {
-                    case 0: // ==
-                        if (current.HasFlag(VarVal.LVal))
-                        {
-                            if (current.HasFlag(VarVal.RVal))
-                                result = Condition.ValEqualValCondition(_block.Board);
-                            else
-                                result = Condition.VarEqualVarCondition(_block.Board);
-
-                            switch(lcomboBox.SelectedIndex)
-                            {
-                                case 0:
-                                case 3:
-                                    result.L = ltextBox.Text;
-                                    break;
-                                case 1:
-                                    result.L = Convert.ToDouble(ltextBox.Text);
-                                    break;
-                                case 2:
-                                    result.L = Convert.ToBoolean(ltextBox.Text);
-                                    break;
-                            }
-                            switch(rcomboBox.SelectedIndex)
-                            {
-
-                            }
-                        }
-                        else
-                        {
-                            if (current.HasFlag(VarVal.RVal))
-                                result = Condition.ValEqualValCondition(_block.Board);
-                            else
-                                result = Condition.VarEqualVarCondition(_block.Board);
-                        }
+                    case 0: //==
+                        result.Compare = Condition.CompareType.Equal;
                         break;
-                    case 1: // <
+                    case 1: //<
+                        result.Compare = Condition.CompareType.Smaller;
                         break;
-                    case 2: // >
+                    case 2: //>
+                        result.Compare = Condition.CompareType.Bigger;
                         break;
-                    case 3: // <=
+                    case 3: //<=
+                        result.Compare = Condition.CompareType.SmallerEqual;
                         break;
-                    case 4: // >=
+                    case 4: //>=
+                        result.Compare = Condition.CompareType.BiggerEqual;
                         break;
-                    case 5: // !=
+                    case 5: //!=
+                        result.Compare = Condition.CompareType.NotEqual;
                         break;
                 }
+
+                return result;
             }
         }
 
