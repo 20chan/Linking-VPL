@@ -40,9 +40,9 @@ namespace Linking.Core.Conds
                 switch(Compare)
                 {
                     case CompareType.Equal:
-                        return lres == rres;
+                        return lres.ToString() == rres.ToString();
                     case CompareType.NotEqual:
-                        return lres != rres;
+                        return lres.ToString() != rres.ToString();
                     case CompareType.Smaller:
                         return lres < rres;
                     case CompareType.Bigger:
