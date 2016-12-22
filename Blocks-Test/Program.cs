@@ -25,7 +25,15 @@ namespace Blocks_Test
             {
                 Variable = new Variable("i", 1)
             };
-            ConditionBlock small = new ConditionBlock(board, null, new ConditionBoolBlock(board, null, Condition.VarSmallerCondition(board, "i", 10)));
+            ConditionBlock small = new ConditionBlock(board, null, new ConditionBoolBlock(board, null,
+                new Condition
+                {
+                    LType = Condition.ValueType.Var,
+                    L = "i",
+                    RType = Condition.ValueType.Val,
+                    R = 10,
+                    Compare = Condition.CompareType.Smaller
+                }));
             ChangeVariableValueBlock change = ChangeVariableValueBlock.VarVar(board, "a", "i", (a, i) => (dynamic)a * (dynamic)i);
             ChangeVariableValueBlock change2 = ChangeVariableValueBlock.VarVal(board, "i", 1, (i, v) => (dynamic)i + (dynamic)v);
 

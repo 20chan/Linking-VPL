@@ -88,6 +88,6 @@ namespace Linking.Core.Blocks
         }
 
         public override bool GetValue(VariableTable table)
-            => Condition.Check(Board);
+            => Condition.Check(table);
     }
 }
