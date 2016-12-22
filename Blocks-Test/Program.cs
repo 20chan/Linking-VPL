@@ -35,8 +35,8 @@ namespace Blocks_Test
                     R = 10,
                     Compare = Condition.CompareType.Smaller
                 }});
-            ChangeVariableValueBlock change = ChangeVariableValueBlock.VarVar(board, "a", "i", (a, i) => (dynamic)a * (dynamic)i);
-            ChangeVariableValueBlock change2 = ChangeVariableValueBlock.VarVal(board, "i", 1, (i, v) => (dynamic)i + (dynamic)v);
+            ChangeVariableValueBlock change = new ChangeVariableValueBlock(board, null, "a", (a, i) => (dynamic)a * (dynamic)i) { };
+            ChangeVariableValueBlock change2 = new ChangeVariableValueBlock(board, null, "i", (i, v) => (dynamic)i + (dynamic)v) { };
 
             Block.Connect(entry, declare1);
             Block.Connect(declare1, declare2);

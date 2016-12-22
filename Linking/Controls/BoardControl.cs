@@ -123,7 +123,9 @@ namespace Linking.Controls
 
         private void 값VToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ChangeVariableValueBlock block = new ChangeVariableValueBlock(Board, Board);
+            block.Location = _lastRightClicked;
+            AddBlock(block);
         }
 
         private void 같다면TToolStripMenuItem_Click(object sender, EventArgs e)

@@ -48,6 +48,10 @@ namespace Linking.Controls.Blocks
                         throw new ArgumentException("THIS SHOULD NOT BE HAPPENED");
                 }
             }
+            set
+            {
+
+            }
         }
 
         public Core.Conds.Condition.ValueType ValueType
