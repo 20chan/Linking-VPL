@@ -1,4 +1,4 @@
-﻿namespace Linking.Controls.Blocks
+﻿namespace Linking.Controls.Blocks.Conditions
 {
     partial class ConstBoolBlockControl
     {

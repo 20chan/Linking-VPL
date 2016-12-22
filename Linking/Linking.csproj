@@ -50,17 +50,23 @@
     <Compile Include="Controls\BlockControl.Designer.cs">
       <DependentUpon>BlockControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Blocks\BoolBlockControl.cs" />
+    <Compile Include="Controls\Blocks\Conditions\CompareBlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Blocks\Conditions\CompareBlockControl.Designer.cs">
+      <DependentUpon>CompareBlockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Blocks\IBoolBlockControl.cs" />
     <Compile Include="Controls\Blocks\ConditionBlockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\Blocks\ConditionBlockControl.Designer.cs">
       <DependentUpon>ConditionBlockControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Blocks\ConstBoolBlockControl.cs">
+    <Compile Include="Controls\Blocks\Conditions\ConstBoolBlockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Blocks\ConstBoolBlockControl.Designer.cs">
+    <Compile Include="Controls\Blocks\Conditions\ConstBoolBlockControl.Designer.cs">
       <DependentUpon>ConstBoolBlockControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Blocks\DeclareVarBlockControl.cs">
@@ -124,7 +130,10 @@
     <EmbeddedResource Include="Controls\Blocks\ConditionBlockControl.resx">
       <DependentUpon>ConditionBlockControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Blocks\ConstBoolBlockControl.resx">
+    <EmbeddedResource Include="Controls\Blocks\Conditions\CompareBlockControl.resx">
+      <DependentUpon>CompareBlockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Blocks\Conditions\ConstBoolBlockControl.resx">
       <DependentUpon>ConstBoolBlockControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Blocks\DeclareVarBlockControl.resx">

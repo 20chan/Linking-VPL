@@ -20,17 +20,17 @@ namespace Linking.Core.Blocks
 
     public class ConstBoolBlock : BoolBlock
     {
-        private Controls.Blocks.ConstBoolBlockControl _control;
+        private Controls.Blocks.Conditions.ConstBoolBlockControl _control;
         public override Control Control => _control;
 
         public bool Value
         {
-            get { return ((Controls.Blocks.ConstBoolBlockControl)Control).Value; }
-            set { ((Controls.Blocks.ConstBoolBlockControl)Control).Value = value; }
+            get { return ((Controls.Blocks.Conditions.ConstBoolBlockControl)Control).Value; }
+            set { ((Controls.Blocks.Conditions.ConstBoolBlockControl)Control).Value = value; }
         }
         public ConstBoolBlock(Board board, Node parent) : base(board, parent)
         {
-            _control = new Controls.Blocks.ConstBoolBlockControl(this);
+            _control = new Controls.Blocks.Conditions.ConstBoolBlockControl(this);
         }
 
         public override bool GetValue(VariableTable table)

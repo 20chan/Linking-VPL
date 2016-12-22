@@ -37,15 +37,15 @@
             this.상수부울BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.조건문CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.작다ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.논리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nOTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.같다면ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.작다면ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.크다면ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.작거나같다면ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.크거나같다면ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.논리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nOTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +81,7 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.추가AToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
             // 
             // 추가AToolStripMenuItem
             // 
@@ -89,7 +89,7 @@
             this.상수부울BToolStripMenuItem,
             this.조건문CToolStripMenuItem});
             this.추가AToolStripMenuItem.Name = "추가AToolStripMenuItem";
-            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.추가AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.추가AToolStripMenuItem.Text = "추가(&A)";
             // 
             // 상수부울BToolStripMenuItem
@@ -120,39 +120,12 @@
             this.작다ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.작다ToolStripMenuItem.Text = "비교";
             // 
-            // 논리ToolStripMenuItem
-            // 
-            this.논리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aNDToolStripMenuItem,
-            this.oRToolStripMenuItem,
-            this.nOTToolStripMenuItem});
-            this.논리ToolStripMenuItem.Name = "논리ToolStripMenuItem";
-            this.논리ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.논리ToolStripMenuItem.Text = "논리";
-            // 
-            // aNDToolStripMenuItem
-            // 
-            this.aNDToolStripMenuItem.Name = "aNDToolStripMenuItem";
-            this.aNDToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aNDToolStripMenuItem.Text = "AND";
-            // 
-            // oRToolStripMenuItem
-            // 
-            this.oRToolStripMenuItem.Name = "oRToolStripMenuItem";
-            this.oRToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.oRToolStripMenuItem.Text = "OR";
-            // 
-            // nOTToolStripMenuItem
-            // 
-            this.nOTToolStripMenuItem.Name = "nOTToolStripMenuItem";
-            this.nOTToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nOTToolStripMenuItem.Text = "NOT";
-            // 
             // 같다면ToolStripMenuItem
             // 
             this.같다면ToolStripMenuItem.Name = "같다면ToolStripMenuItem";
             this.같다면ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.같다면ToolStripMenuItem.Text = "같다면";
+            this.같다면ToolStripMenuItem.Click += new System.EventHandler(this.같다면ToolStripMenuItem_Click);
             // 
             // 작다면ToolStripMenuItem
             // 
@@ -177,6 +150,34 @@
             this.크거나같다면ToolStripMenuItem.Name = "크거나같다면ToolStripMenuItem";
             this.크거나같다면ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.크거나같다면ToolStripMenuItem.Text = "크거나 같다면";
+            // 
+            // 논리ToolStripMenuItem
+            // 
+            this.논리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aNDToolStripMenuItem,
+            this.oRToolStripMenuItem,
+            this.nOTToolStripMenuItem});
+            this.논리ToolStripMenuItem.Name = "논리ToolStripMenuItem";
+            this.논리ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.논리ToolStripMenuItem.Text = "논리";
+            // 
+            // aNDToolStripMenuItem
+            // 
+            this.aNDToolStripMenuItem.Name = "aNDToolStripMenuItem";
+            this.aNDToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.aNDToolStripMenuItem.Text = "AND";
+            // 
+            // oRToolStripMenuItem
+            // 
+            this.oRToolStripMenuItem.Name = "oRToolStripMenuItem";
+            this.oRToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.oRToolStripMenuItem.Text = "OR";
+            // 
+            // nOTToolStripMenuItem
+            // 
+            this.nOTToolStripMenuItem.Name = "nOTToolStripMenuItem";
+            this.nOTToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.nOTToolStripMenuItem.Text = "NOT";
             // 
             // ConditionBlockControl
             // 

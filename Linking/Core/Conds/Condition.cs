@@ -18,28 +18,133 @@ namespace Linking.Core.Conds
             return _conditionDelegate(board);
         }
 
-        public static Condition VarSmallerCondition(Board board, string name, object value)
-            => new Condition(b => (dynamic)b._table[name].Value < (dynamic)value);
+        public object L { get; set; }
+        public object R { get; set; }
 
-        public static Condition VarSmallerEqualCondition(Board board, string name, object value)
-            => new Condition(b => (dynamic)b._table[name].Value <= (dynamic)value);
+        public static Condition VarEqualVarCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b =>(dynamic)b._table[c.L.ToString()].Value == (dynamic)b._table[c.R.ToString()].Value);
+            return c;
+        }
 
-        public static Condition VarBiggerCondition(Board board, string name, object value)
-            => new Condition(b => (dynamic)b._table[name].Value > (dynamic)value);
+        public static Condition VarEqualValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value == (dynamic)c.R);
+            return c;
+        }
 
-        public static Condition VarBiggerEqualCondition(Board board, string name, object value)
-            => new Condition(b => (dynamic)b._table[name].Value >= (dynamic)value);
+        public static Condition ValEqualValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)c.L == (dynamic)c.R);
+            return c;
+        }
+        
+        public static Condition VarSmallerVarCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value < (dynamic)b._table[c.R.ToString()].Value);
+            return c;
+        }
 
-        public static Condition VarEqualCondition(Board board, string name, object value)
-            => new Condition(b => (dynamic)b._table[name].Value == (dynamic)value);
+        public static Condition VarSmallerValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value == (dynamic)c.R);
+            return c;
+        }
 
-        public static Condition AndCond(Board board, Condition cond1, Condition cond2)
-            => new Condition(b => cond1.Check(b) && cond2.Check(b));
+        public static Condition ValSmallerValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)c.L == (dynamic)c.R);
+            return c;
+        }
 
-        public static Condition OrCond(Board board, Condition cond1, Condition cond2)
-            => new Condition(b => cond1.Check(b) || cond2.Check(b));
+        public static Condition VarSmallerEqualVarCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value <= (dynamic)b._table[c.R.ToString()].Value);
+            return c;
+        }
 
-        public static Condition NotCond(Board board, Condition cond)
-            => new Condition(b => !cond.Check(b));
+        public static Condition VarSmallerEqualValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value <= (dynamic)c.R);
+            return c;
+        }
+
+        public static Condition ValSmallerEqualValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)c.L <= (dynamic)c.R);
+            return c;
+        }
+
+        public static Condition VarBiggerVarCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value > (dynamic)b._table[c.R.ToString()].Value);
+            return c;
+        }
+
+        public static Condition VarBiggerValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value > (dynamic)c.R);
+            return c;
+        }
+
+        public static Condition ValBiggerValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)c.L > (dynamic)c.R);
+            return c;
+        }
+
+        public static Condition VarBiggerEqualVarCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value >= (dynamic)b._table[c.R.ToString()]);
+            return c;
+        }
+
+        public static Condition VarBiggerEqualValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)b._table[c.L.ToString()].Value >= (dynamic)c.R);
+            return c;
+        }
+
+        public static Condition ValBiggerEqualValCondition(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => (dynamic)c.L >= (dynamic)c.R);
+            return c;
+        }
+
+        public static Condition AndCond(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => ((dynamic)c.L).Check(b) && ((dynamic)c.R).Check(b));
+            return c;
+        }
+
+        public static Condition OrCond(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => ((dynamic)c.L).Check(b) || ((dynamic)c.R).Check(b));
+            return c;
+        }
+
+        public static Condition NotCond(Board board)
+        {
+            Condition c = new Condition();
+            c._conditionDelegate = (b => !((dynamic)c.L).Check(b));
+            return c;
+        }
     }
 }
