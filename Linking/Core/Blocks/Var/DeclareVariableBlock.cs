@@ -6,19 +6,19 @@ namespace Linking.Core.Blocks.Var
 {
     public class DeclareVariableBlock : Block
     {
-        public override Control Control
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        private Controls.Blocks.DeclareVarBlockControl _control;
+        public override Control Control => _control;
 
-        public Variable Variable { get; set; }
+        public Variable Variable
+        {
+            get { return _control.Variable; }
+            set { _control.Variable = value; }
+        }
         
         public DeclareVariableBlock(Board board, Node parent = null) : base(board, parent)
         {
             _linked = new Block[1];
+            _control = new Controls.Blocks.DeclareVarBlockControl(this);
         }
 
         protected override void ConnectFrom(Block block)

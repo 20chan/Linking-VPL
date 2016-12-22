@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Linking.Core;
 using Linking.Core.Blocks;
+using Linking.Core.Blocks.Var;
 using Linking.Controls.Blocks;
 
 namespace Linking.Controls
@@ -114,7 +115,9 @@ namespace Linking.Controls
 
         private void 선언DToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            DeclareVariableBlock block = new DeclareVariableBlock(Board, Board);
+            block.Location = _lastRightClicked;
+            AddBlock(block);
         }
 
         private void 값VToolStripMenuItem_Click(object sender, EventArgs e)
