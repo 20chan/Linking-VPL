@@ -10,7 +10,7 @@ using Linking.Core.Conds;
 
 namespace Linking.Controls.Blocks.Conditions
 {
-    public partial class CompareBlockControl : UserControl
+    public partial class CompareBlockControl : UserControl, IBoolBlockControl
     {
         public Condition Condition
         {
@@ -35,7 +35,7 @@ namespace Linking.Controls.Blocks.Conditions
                 {
                     result.RType = Condition.ValueType.Val;
                     result.R = rcomboBox.SelectedIndex == 0 ? rtextBox.Text :
-                        (rcomboBox.SelectedIndex == 1 ? (object)Convert.ToDouble(ltextBox.Text) : Convert.ToBoolean(ltextBox.Text));
+                        (rcomboBox.SelectedIndex == 1 ? (object)Convert.ToDouble(rtextBox.Text) : Convert.ToBoolean(rtextBox.Text));
                 }
                 else
                 {
@@ -66,6 +66,62 @@ namespace Linking.Controls.Blocks.Conditions
                 }
 
                 return result;
+            }
+            set
+            {
+                switch (value.LType)
+                {
+                    case Condition.ValueType.Str:
+                        lcomboBox.SelectedIndex = 0;
+                        break;
+                    case Condition.ValueType.Num:
+                        lcomboBox.SelectedIndex = 1;
+                        break;
+                    case Condition.ValueType.Bool:
+                        lcomboBox.SelectedIndex = 2;
+                        break;
+                    case Condition.ValueType.Var:
+                        lcomboBox.SelectedIndex = 3;
+                        break;
+                }
+                switch (value.RType)
+                {
+                    case Condition.ValueType.Str:
+                        rcomboBox.SelectedIndex = 0;
+                        break;
+                    case Condition.ValueType.Num:
+                        rcomboBox.SelectedIndex = 1;
+                        break;
+                    case Condition.ValueType.Bool:
+                        rcomboBox.SelectedIndex = 2;
+                        break;
+                    case Condition.ValueType.Var:
+                        rcomboBox.SelectedIndex = 3;
+                        break;
+                }
+                ltextBox.Text = value.L.ToString();
+                rtextBox.Text = value.R.ToString();
+                switch(value.Compare)
+                {
+                    case Condition.CompareType.Equal:
+                        comboBox1.SelectedIndex = 0;
+                        break;
+                    case Condition.CompareType.Smaller:
+                        comboBox1.SelectedIndex = 1;
+                        break;
+                    case Condition.CompareType.Bigger:
+                        comboBox1.SelectedIndex = 2;
+                        break;
+                    case Condition.CompareType.SmallerEqual:
+                        comboBox1.SelectedIndex = 3;
+                        break;
+                    case Condition.CompareType.BiggerEqual:
+                        comboBox1.SelectedIndex = 4;
+                        break;
+                    case Condition.CompareType.NotEqual:
+                        comboBox1.SelectedIndex = 5;
+                        break;
+                }
             }
         }
 

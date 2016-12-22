@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Linking.Core.Var;
 using Linking.Core.Conds;
+using Linking.Controls.Blocks.Conditions;
 
 namespace Linking.Core.Blocks
 {
@@ -45,24 +46,17 @@ namespace Linking.Core.Blocks
 
     public class VarBoolBlock : BoolBlock
     {
-        private TextBox _textBox = new TextBox();
-        public override Control Control
-        {
-            get
-            {
-                return _textBox;
-            }
-        }
+        private VarBoolBlockControl _control;
+        public override Control Control => _control;
 
         public string Name
         {
-            get { return _textBox.Text; }
-            set { _textBox.Text = value; }
+            get { return _control.VarName; }
+            set { _control.VarName = value; }
         }
         public VarBoolBlock(Board board, Node parent, string name = "") : base(board, parent)
         {
             Name = name;
-
         }
 
         public override bool GetValue(VariableTable table)
@@ -73,18 +67,17 @@ namespace Linking.Core.Blocks
 
     public class ConditionBoolBlock : BoolBlock
     {
-        public override Control Control
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        private CompareBlockControl _control;
+        public override Control Control => _control;
 
-        public Condition Condition { get; set; }
-        public ConditionBoolBlock(Board board, Node parent, Condition cond) : base(board, parent)
+        public Condition Condition
         {
-            this.Condition = cond;
+            get { return _control.Condition; }
+            set { _control.Condition = value; }
+        }
+        public ConditionBoolBlock(Board board, Node parent) : base(board, parent)
+        {
+            _control = new CompareBlockControl(this);
         }
 
         public override bool GetValue(VariableTable table)

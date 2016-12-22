@@ -107,6 +107,7 @@
             this.조건문CToolStripMenuItem.Name = "조건문CToolStripMenuItem";
             this.조건문CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.조건문CToolStripMenuItem.Text = "조건문(&C)";
+            this.조건문CToolStripMenuItem.Click += new System.EventHandler(this.조건문CToolStripMenuItem_Click);
             // 
             // 작다ToolStripMenuItem
             // 

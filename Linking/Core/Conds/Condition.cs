@@ -57,7 +57,8 @@ namespace Linking.Core.Conds
             }
         }
 
-        public enum ValueType { Var, Val, Cond }
+        [Flags]
+        public enum ValueType { Var = 1, Str = 2, Num = 4, Bool = 8, Val = Str | Num | Bool, Cond = 16 }
         public enum CompareType { Equal, NotEqual, Smaller, Bigger, SmallerEqual, BiggerEqual, And, Or, Not }
 
         public CompareType Compare { get; set; }

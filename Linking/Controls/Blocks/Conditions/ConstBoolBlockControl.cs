@@ -29,6 +29,7 @@ namespace Linking.Controls.Blocks.Conditions
             comboBox1.SelectedIndex = 0;
         }
 
+
         private void comboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             _value = ((ComboBox)sender).SelectedIndex == 0;
