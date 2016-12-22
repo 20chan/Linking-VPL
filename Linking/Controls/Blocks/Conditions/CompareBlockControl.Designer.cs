@@ -49,7 +49,6 @@
             this.lcomboBox.Size = new System.Drawing.Size(152, 20);
             this.lcomboBox.TabIndex = 0;
             this.lcomboBox.Tag = "l";
-            this.lcomboBox.SelectedIndexChanged += new System.EventHandler(this.lcomboBox_SelectedIndexChanged);
             // 
             // ltextBox
             // 
@@ -79,7 +78,6 @@
             this.rcomboBox.Size = new System.Drawing.Size(152, 20);
             this.rcomboBox.TabIndex = 2;
             this.rcomboBox.Tag = "r";
-            this.rcomboBox.SelectedIndexChanged += new System.EventHandler(this.lcomboBox_SelectedIndexChanged);
             // 
             // comboBox1
             // 

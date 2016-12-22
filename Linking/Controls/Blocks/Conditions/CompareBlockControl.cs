@@ -132,17 +132,6 @@ namespace Linking.Controls.Blocks.Conditions
             _block = block;
             lcomboBox.SelectedIndex = rcomboBox.SelectedIndex = comboBox1.SelectedIndex = 0;
         }
-
-        private void lcomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox c = (ComboBox)sender;
-            if (c.Tag.ToString() == "l")
-                ltextBox.ReadOnly = c.SelectedIndex == 3;
-            else if (c.Tag.ToString() == "r")
-                rtextBox.ReadOnly = c.SelectedIndex == 3;
-            else
-                throw new ArgumentException("THIS SHOULD NOT HAPPENED...");
-        }
         
         [Flags]
         private enum VarVal

@@ -50,6 +50,12 @@
     <Compile Include="Controls\BlockControl.Designer.cs">
       <DependentUpon>BlockControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Blocks\ChangeVarBlockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Blocks\ChangeVarBlockControl.Designer.cs">
+      <DependentUpon>ChangeVarBlockControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Blocks\Conditions\CompareBlockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\BlockControl.resx">
       <DependentUpon>BlockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Blocks\ChangeVarBlockControl.resx">
+      <DependentUpon>ChangeVarBlockControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Blocks\ConditionBlockControl.resx">
       <DependentUpon>ConditionBlockControl.cs</DependentUpon>
