@@ -57,6 +57,11 @@
             Next = null;
         }
 
+        public virtual void DisConnect(int index)
+        {
+            _linked[index] = null;
+        }
+
         public static void Connect(Block from, Block to, int index = 0)
         {
             from.ConnectTo(to, index);

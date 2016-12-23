@@ -42,6 +42,7 @@ namespace Linking.Controls
                 b.Dock = DockStyle.Fill;
                 b.Text = string.Empty;
                 b.Click += B_Click;
+                b.MouseUp += B_MouseUp;
                 tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / Block.LinkedBlocks.Length));
                 tableLayoutPanel2.Controls.Add(b);
             }
@@ -57,6 +58,15 @@ namespace Linking.Controls
         {
             int index = ((OutButton)sender).Index;
             TriedToLinkOut?.Invoke(this, new LinkOutEventArgs(index));
+        }
+
+        private void B_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Middle)
+            {
+                Block.DisConnect(((OutButton)sender).Index);
+                NeedInvalidate?.Invoke();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
