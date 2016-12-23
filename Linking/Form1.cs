@@ -21,6 +21,9 @@ namespace Linking
             _control.Size = new Size(hScrollBar1.Maximum * 30 + Width, vScrollBar1.Maximum * 30 + Height);
             this.Controls.Add(_control);
 
+            this.KeyDown += Form1_KeyDown;
+            KeyPreview = true;
+
             EntryBlock entry = new EntryBlock(_board);
             entry.Location = new Point(00, 50);
             _control.AddBlocks(entry);
@@ -30,6 +33,20 @@ namespace Linking
         private void ScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             _control.Location = new Point(-hScrollBar1.Value * 30, -vScrollBar1.Value * 30);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Control) return;
+            if (e.KeyCode == Keys.Left && hScrollBar1.Value != hScrollBar1.Minimum)
+                hScrollBar1.Value -= 1;
+            else if (e.KeyCode == Keys.Right && hScrollBar1.Value != hScrollBar1.Maximum)
+                hScrollBar1.Value += 1;
+            if (e.KeyCode == Keys.Up && vScrollBar1.Value != vScrollBar1.Minimum)
+                vScrollBar1.Value -= 1;
+            else if (e.KeyCode == Keys.Down && vScrollBar1.Value != vScrollBar1.Maximum)
+                vScrollBar1.Value += 1;
+            ScrollBar1_Scroll(null, null);
         }
     }
 }
