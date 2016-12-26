@@ -22,6 +22,8 @@ namespace Linking.Controls
         private BlockControl _linking;
         private int _linkIndex;
 
+        public event Action<string> Printed;
+
         public BoardControl(Board board)
         {
             InitializeComponent();
@@ -72,6 +74,9 @@ namespace Linking.Controls
             block.OuterControl.TriedToLinkOut += Bc_TriedToLinkOut;
             block.LocationChanged += (a, b) => block.OuterControl.Location = block.Location;
             block.OuterControl.NeedInvalidate += () => Invalidate();
+
+            if (block is PrintBlock)
+                ((PrintBlock)block).Printed += (s) => Printed?.Invoke(s);
             this.Controls.Add(block.OuterControl);
         }
         
@@ -156,7 +161,7 @@ namespace Linking.Controls
 
         private void 출력ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBoxBlock block = new MessageBoxBlock(Board, Board);
+            PrintBlock block = new PrintBlock(Board, Board);
             block.Location = _lastRightClicked;
             AddBlock(block);
         }

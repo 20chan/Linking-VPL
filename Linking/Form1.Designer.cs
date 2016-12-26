@@ -30,12 +30,13 @@
         {
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // hScrollBar1
             // 
             this.hScrollBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.hScrollBar1.Location = new System.Drawing.Point(0, 556);
+            this.hScrollBar1.Location = new System.Drawing.Point(0, 440);
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(1122, 17);
             this.hScrollBar1.TabIndex = 0;
@@ -46,9 +47,19 @@
             this.vScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
             this.vScrollBar1.Location = new System.Drawing.Point(1105, 0);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 556);
+            this.vScrollBar1.Size = new System.Drawing.Size(17, 440);
             this.vScrollBar1.TabIndex = 1;
             this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ScrollBar1_Scroll);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox1.Location = new System.Drawing.Point(0, 457);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(1122, 116);
+            this.textBox1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -57,9 +68,11 @@
             this.ClientSize = new System.Drawing.Size(1122, 573);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.hScrollBar1);
+            this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = " ";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -67,6 +80,7 @@
 
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

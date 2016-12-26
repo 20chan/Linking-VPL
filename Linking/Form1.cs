@@ -21,6 +21,8 @@ namespace Linking
             _control.Size = new Size(hScrollBar1.Maximum * 30 + Width, vScrollBar1.Maximum * 30 + Height);
             this.Controls.Add(_control);
 
+            _control.Printed += _control_Printed;
+
             this.KeyDown += Form1_KeyDown;
             KeyPreview = true;
 
@@ -47,6 +49,14 @@ namespace Linking
             else if (e.KeyCode == Keys.Down && vScrollBar1.Value != vScrollBar1.Maximum)
                 vScrollBar1.Value += 1;
             ScrollBar1_Scroll(null, null);
+        }
+
+        private void _control_Printed(string message)
+        {
+            if (message == null)
+                textBox1.AppendText("에러\r\n");
+            else
+                textBox1.AppendText(message + "\r\n");
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Linking.Controls.Blocks
 {
     public partial class MessageBoxBlockControl : UserControl
     {
-        private MessageBoxBlock _block;
-        public MessageBoxBlockControl(MessageBoxBlock block)
+        private PrintBlock _block;
+        public MessageBoxBlockControl(PrintBlock block)
         {
             InitializeComponent();
             _block = block;
