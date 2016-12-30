@@ -17,6 +17,10 @@ namespace Linking.Controls.Blocks
         {
             get
             {
+                if(comboBox1.SelectedIndex == -1)
+                {
+                    throw new ArgumentNullException("변수 타입을 정하지 않았습니다");
+                }
                 object value = comboBox1.SelectedIndex == 0 ? textBox2.Text :
                     (comboBox1.SelectedIndex == 1 ? (object)Convert.ToDouble(textBox2.Text) : Convert.ToBoolean(textBox2.Text));
                 return new Variable(textBox1.Text, value);

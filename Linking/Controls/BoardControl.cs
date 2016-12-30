@@ -156,7 +156,14 @@ namespace Linking.Controls
 
         private void 실행RToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Board.Run();
+            try
+            {
+                Board.Run();
+            }
+            catch (ArgumentNullException ex)
+            {
+                Printed?.Invoke(ex.Message);
+            }
         }
 
         private void 출력ToolStripMenuItem_Click(object sender, EventArgs e)
